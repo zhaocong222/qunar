@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item,key) of cities" :key="key">
+      <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list" v-for="innerItem of item" :key="innerItem.id">
           <div class="item border-bottom">{{innerItem.name}}</div>
@@ -33,11 +33,21 @@ export default {
   name: 'CityList',
   props: {
     cities: Object,
-    hot: Array
+    hot: Array,
+    letter: String
   },
-  mounted() {
+  mounted (){
     //通过 $refs 获取此 ref属性为wrapper 的dom节点
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  //通过监听器,letter变了就改变列表位置
+  watch: {
+    letter (){
+      if (this.letter){
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
