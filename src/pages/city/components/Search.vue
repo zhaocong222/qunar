@@ -5,7 +5,7 @@
     </div>
     <div class="search-content" ref="search" v-show="keyword">
       <ul>
-        <li class="search-item" v-for="item of list" :key="item.id">
+        <li class="search-item" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">
           {{item.name}}
         </li>
         <li
@@ -23,6 +23,14 @@ export default {
     name: 'CitySearch',
     props: {
       cities: Object
+    },
+    methods: {
+      handleCityClick (city){
+        //改变store里的值
+        this.$store.commit('changeCity',city)
+        //页面跳转
+        this.$router.push('/')
+      }
     },
     data (){
       return {
