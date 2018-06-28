@@ -10,7 +10,7 @@
         </li>
         <li
           class="search-item border-bottom"
-          v-show="!list.length"
+          v-show="hasNoData"
         >没有找到匹配数据</li>
       </ul>
     </div>
@@ -29,6 +29,11 @@ export default {
         keyword: '',
         list: [],
         timer: null
+      }
+    },
+    computed: {
+      hasNoData (){
+        return !this.list.length
       }
     },
     watch: {
