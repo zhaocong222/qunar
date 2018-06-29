@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api' : {
-        target: 'http://192.168.66.146:8080',
+        target: 'http://localhost:8080',
         pathRewrite: {
           '^/api': '/static/data'
         }
@@ -19,7 +19,7 @@ module.exports = {
     },
 
     // Various Dev Server settings
-    host: '192.168.66.146', // can be overwritten by process.env.HOST
+    host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
@@ -56,7 +56,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/qunar-font',
 
     /**
      * Source Maps

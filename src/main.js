@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'babel-polyfill' //解决兼容性
 import store from './store/index'
 import 'styles/reset.css'
 import 'styles/border.css'
