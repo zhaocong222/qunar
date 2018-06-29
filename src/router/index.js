@@ -21,5 +21,10 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  //每次路由切换时, 滚动条默认到最顶部
+  scrollBehavior(to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    return { x:0, y:0 }
+  }
 })
