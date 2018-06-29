@@ -8,7 +8,9 @@
           输入城市/景点/游玩主题</div>
         <router-link to='/city'>
           <div class="header-right">
-            {{this.$store.state.city}}
+            <!--{{this.$store.state.city}}-->
+            <!--利用vuex高级写法-->
+            {{this.city}}
             <span class="iconfont arrow-icon">&#xe64a;</span>          
           </div>
         </router-link>    
@@ -16,8 +18,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
-    name: 'HomeHeader'
+    name: 'HomeHeader',
+    //把vuex里city数据映射到 vue组件里的computed属性里 ,这里...mapState参数也可以用对象
+    computed: {
+      ...mapState(['city'])
+    }
 }
 </script>
 
